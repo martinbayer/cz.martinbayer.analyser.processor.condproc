@@ -29,3 +29,4 @@ Require-Bundle: cz.martinbayer.analyser.processor,
  cz.martinbayer.externalLibs
 Export-Package: cz.martinbayer.analyser.processor.condproc.gui,
  cz.martinbayer.analyser.processor.condproc.processor
+Service-Component: OSGI-INF/component.xml

@@ -7,7 +7,7 @@ import org.eclipse.swt.widgets.Event;
 import org.eclipse.swt.widgets.TableItem;
 
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
-import cz.martinbayer.e4.analyser.widgets.SWTUtils;
+import cz.martinbayer.utils.gui.SWTUtils;
 
 public class CondEnableLabelProvider extends OwnerDrawLabelProvider {
 
