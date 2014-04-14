@@ -65,7 +65,6 @@ public class ConditionConfigDialog extends TitleAreaDialog {
 
 	@Override
 	protected void setShellStyle(int newShellStyle) {
-		// TODO Auto-generated method stub
 		super.setShellStyle(newShellStyle | SWT.RESIZE | SWT.MAX);
 	}
 }

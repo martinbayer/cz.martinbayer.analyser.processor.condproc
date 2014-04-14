@@ -1,5 +1,6 @@
 package cz.martinbayer.analyser.processor.condproc.processor;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,8 +14,13 @@ import cz.martinbayer.utils.model.ObservableModelObject;
  * @author Martin
  * 
  */
-public class ConditionProcessorModel extends ObservableModelObject {
+public class ConditionProcessorModel extends ObservableModelObject implements
+		Serializable {
 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -4423080845457977950L;
 	private List<ConditionDescriptor> condDescriptors = new ArrayList<>();
 
 	public final List<ConditionDescriptor> getCondDesciptors() {

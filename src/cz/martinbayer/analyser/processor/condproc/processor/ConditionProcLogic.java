@@ -2,12 +2,12 @@ package cz.martinbayer.analyser.processor.condproc.processor;
 
 import java.util.List;
 
-import cz.martinbayer.analyser.impl.ConcreteData;
+import cz.martinbayer.analyser.impl.ConcreteXMLog;
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
 import cz.martinbayer.analyser.processors.IProcessorLogic;
 import cz.martinbayer.analyser.processors.types.LogProcessor;
 
-public class ConditionProcLogic implements IProcessorLogic<ConcreteData> {
+public class ConditionProcLogic implements IProcessorLogic<ConcreteXMLog> {
 
 	private ConditionProcessor processor;
 	private ConditionProcessorModel model;
@@ -18,7 +18,7 @@ public class ConditionProcLogic implements IProcessorLogic<ConcreteData> {
 	}
 
 	@Override
-	public LogProcessor<ConcreteData> getProcessor() {
+	public LogProcessor<ConcreteXMLog> getProcessor() {
 		return this.processor;
 	}
 

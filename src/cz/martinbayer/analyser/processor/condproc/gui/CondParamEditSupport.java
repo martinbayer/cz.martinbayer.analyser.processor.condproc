@@ -2,6 +2,7 @@ package cz.martinbayer.analyser.processor.condproc.gui;
 
 import java.util.HashSet;
 
+import org.eclipse.e4.core.services.log.Logger;
 import org.eclipse.jface.viewers.ArrayContentProvider;
 import org.eclipse.jface.viewers.CellEditor;
 import org.eclipse.jface.viewers.ColumnViewer;
@@ -11,10 +12,12 @@ import org.eclipse.jface.viewers.LabelProvider;
 import org.eclipse.swt.SWT;
 import org.eclipse.swt.widgets.Composite;
 
+import cz.martinbayer.analyser.procedures.exception.UnsupportedParamException;
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
+import cz.martinbayer.e4.analyser.LoggerFactory;
 
 public class CondParamEditSupport extends EditingSupport {
-
+	private Logger logger = LoggerFactory.getInstance(getClass());
 	private ColumnViewer tableViewer;
 	private ComboBoxViewerCellEditor cellEditor;
 
@@ -65,7 +68,11 @@ public class CondParamEditSupport extends EditingSupport {
 	@Override
 	protected void setValue(Object element, Object value) {
 		if (value != null) {
-			((ConditionDescriptor) element).setSelectedProcParam(value);
+			try {
+				((ConditionDescriptor) element).setSelectedProcParam(value);
+			} catch (UnsupportedParamException e) {
+				logger.error("Invalid parameter set", e);
+			}
 			tableViewer.update(element, null);
 		}
 	}
