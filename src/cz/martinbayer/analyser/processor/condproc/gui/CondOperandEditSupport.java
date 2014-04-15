@@ -55,6 +55,13 @@ public class CondOperandEditSupport extends EditingSupport {
 					cellEditor = new TextCellEditor((Composite) getViewer()
 							.getControl(), SWT.BORDER);
 				}
+				try {
+					descriptor.setSelectedProcOperands(descriptor
+							.getSelectedProcOperands());
+				} catch (UnsupportedOperandsException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			} else if (operand instanceof ProcOperand) {
 				cellEditor = new ComboBoxViewerCellEditor(
 						(Composite) getViewer().getControl(), SWT.READ_ONLY);
@@ -110,11 +117,11 @@ public class CondOperandEditSupport extends EditingSupport {
 	protected Object getValue(Object element) {
 		if (element instanceof ConditionDescriptor) {
 			try {
-				return ((ConditionDescriptor) element)
-						.getSelectedProcOperands().getValue(operandNo);
+				return String.valueOf(((ConditionDescriptor) element)
+						.getSelectedProcOperands().getValue(operandNo));
 			} catch (UnsupportedOperandsException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
+				logger.debug("Unable to show value for operand {}", operandNo);
+				return "";
 			}
 		}
 		return null;
@@ -122,7 +129,17 @@ public class CondOperandEditSupport extends EditingSupport {
 
 	@Override
 	protected void setValue(Object element, Object value) {
+		if (element instanceof ConditionDescriptor) {
+			try {
+				((ConditionDescriptor) element).getSelectedProcOperands()
+						.setValue(value, operandNo);
 
+				tableViewer.update(element, null);
+			} catch (UnsupportedOperandsException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 }

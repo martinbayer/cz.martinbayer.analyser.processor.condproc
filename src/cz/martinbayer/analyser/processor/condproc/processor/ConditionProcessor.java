@@ -7,18 +7,31 @@ import cz.martinbayer.analyser.processors.types.ConditionalProcessor;
 
 public class ConditionProcessor extends ConditionalProcessor<ConcreteXMLog> {
 
-	private ConditionProcessorModel model;
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = -1700380590013855537L;
+	private ConditionProcessorModel<ConcreteXMLog> model;
 
-	public ConditionProcessor(ConditionProcessorModel model) {
+	public ConditionProcessor(ConditionProcessorModel<ConcreteXMLog> model) {
 		this.model = model;
 	}
 
 	@Override
 	protected void process() {
-		for (ConditionDescriptor desc : this.model.getCondDesciptors()) {
+		for (ConditionDescriptor<ConcreteXMLog> desc : this.model
+				.getRunnableCondDesciptors()) {
 			try {
 				desc.getSelectedProcedure().setData(logData);
 				desc.getSelectedProcedure().runProcedure();
+				if (desc.getSelectedProcedure().getResult()) {
+					/* stop on first passed condition */
+					nextSelectedProcessor = desc.getSelectedProcessor();
+					break;
+				} else {
+					logger.info("Procedure {} didn't pass", desc
+							.getSelectedProcedure().getName());
+				}
 			} catch (ProcedureException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
