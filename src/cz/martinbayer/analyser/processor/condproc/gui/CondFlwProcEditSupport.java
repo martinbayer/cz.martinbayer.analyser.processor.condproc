@@ -10,7 +10,7 @@ import org.eclipse.swt.widgets.Composite;
 
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
 import cz.martinbayer.analyser.processor.condproc.processor.ConditionProcLogic;
-import cz.martinbayer.analyser.processors.model.IXMLog;
+import cz.martinbayer.analyser.processors.model.IE4LogsisLog;
 import cz.martinbayer.analyser.processors.types.LogProcessor;
 import cz.martinbayer.e4.analyser.widgets.AutoDropComboBoxViewerCellEditor;
 
@@ -68,7 +68,7 @@ public class CondFlwProcEditSupport extends EditingSupport {
 	protected void setValue(Object element, Object value) {
 		if (element instanceof ConditionDescriptor) {
 			((ConditionDescriptor) element)
-					.setSelectedProcessor((LogProcessor<IXMLog>) value);
+					.setSelectedProcessor((LogProcessor<IE4LogsisLog>) value);
 		}
 	}
 

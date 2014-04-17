@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
-import cz.martinbayer.analyser.processors.model.IXMLog;
+import cz.martinbayer.analyser.processors.model.IE4LogsisLog;
 import cz.martinbayer.utils.model.ObservableModelObject;
 
 /**
@@ -15,7 +15,7 @@ import cz.martinbayer.utils.model.ObservableModelObject;
  * @author Martin
  * 
  */
-public class ConditionProcessorModel<T extends IXMLog> extends
+public class ConditionProcessorModel<T extends IE4LogsisLog> extends
 		ObservableModelObject implements Serializable {
 
 	/**

@@ -2,19 +2,19 @@ package cz.martinbayer.analyser.processor.condproc.processor;
 
 import java.util.List;
 
-import cz.martinbayer.analyser.impl.ConcreteXMLog;
+import cz.martinbayer.analyser.impl.ConcreteE4LogsisLog;
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
 import cz.martinbayer.analyser.processors.IProcessorLogic;
 import cz.martinbayer.analyser.processors.types.LogProcessor;
 
-public class ConditionProcLogic implements IProcessorLogic<ConcreteXMLog> {
+public class ConditionProcLogic implements IProcessorLogic<ConcreteE4LogsisLog> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 1555192448880937105L;
 	private ConditionProcessor processor;
-	private ConditionProcessorModel<ConcreteXMLog> model;
+	private ConditionProcessorModel<ConcreteE4LogsisLog> model;
 
 	public ConditionProcLogic() {
 		this.model = new ConditionProcessorModel<>();
@@ -22,21 +22,21 @@ public class ConditionProcLogic implements IProcessorLogic<ConcreteXMLog> {
 	}
 
 	@Override
-	public LogProcessor<ConcreteXMLog> getProcessor() {
+	public LogProcessor<ConcreteE4LogsisLog> getProcessor() {
 		return this.processor;
 	}
 
 	public boolean addCondDescriptorToModel(
-			ConditionDescriptor<ConcreteXMLog> condDescriptor) {
+			ConditionDescriptor<ConcreteE4LogsisLog> condDescriptor) {
 		return this.model.addCondDescriptor(condDescriptor);
 	}
 
 	public boolean removeProcedureFromModel(
-			ConditionDescriptor<ConcreteXMLog> condDescriptor) {
+			ConditionDescriptor<ConcreteE4LogsisLog> condDescriptor) {
 		return this.model.removeCondDescriptor(condDescriptor);
 	}
 
-	public List<ConditionDescriptor<ConcreteXMLog>> getCondDescriptors() {
+	public List<ConditionDescriptor<ConcreteE4LogsisLog>> getCondDescriptors() {
 		return this.model.getCondDesciptors();
 	}
 }

@@ -1,25 +1,25 @@
 package cz.martinbayer.analyser.processor.condproc.processor;
 
-import cz.martinbayer.analyser.impl.ConcreteXMLog;
+import cz.martinbayer.analyser.impl.ConcreteE4LogsisLog;
 import cz.martinbayer.analyser.procedures.exception.ProcedureException;
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
 import cz.martinbayer.analyser.processors.types.ConditionalProcessor;
 
-public class ConditionProcessor extends ConditionalProcessor<ConcreteXMLog> {
+public class ConditionProcessor extends ConditionalProcessor<ConcreteE4LogsisLog> {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = -1700380590013855537L;
-	private ConditionProcessorModel<ConcreteXMLog> model;
+	private ConditionProcessorModel<ConcreteE4LogsisLog> model;
 
-	public ConditionProcessor(ConditionProcessorModel<ConcreteXMLog> model) {
+	public ConditionProcessor(ConditionProcessorModel<ConcreteE4LogsisLog> model) {
 		this.model = model;
 	}
 
 	@Override
 	protected void process() {
-		for (ConditionDescriptor<ConcreteXMLog> desc : this.model
+		for (ConditionDescriptor<ConcreteE4LogsisLog> desc : this.model
 				.getRunnableCondDesciptors()) {
 			try {
 				desc.getSelectedProcedure().setData(logData);

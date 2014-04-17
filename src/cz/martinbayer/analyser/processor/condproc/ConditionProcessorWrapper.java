@@ -2,7 +2,7 @@ package cz.martinbayer.analyser.processor.condproc;
 
 import org.eclipse.swt.events.MouseEvent;
 
-import cz.martinbayer.analyser.impl.ConcreteXMLog;
+import cz.martinbayer.analyser.impl.ConcreteE4LogsisLog;
 import cz.martinbayer.analyser.processor.condproc.paletteitem.ConditionPaletteItem;
 import cz.martinbayer.analyser.processor.condproc.processor.ConditionProcLogic;
 import cz.martinbayer.analyser.processors.IProcessorItemWrapper;
@@ -10,7 +10,7 @@ import cz.martinbayer.analyser.processors.IProcessorLogic;
 import cz.martinbayer.analyser.processors.IProcessorsPaletteItem;
 
 public class ConditionProcessorWrapper implements
-		IProcessorItemWrapper<ConcreteXMLog> {
+		IProcessorItemWrapper<ConcreteE4LogsisLog> {
 
 	private ConditionProcLogic logic;
 	private ConditionPaletteItem item;
@@ -21,7 +21,7 @@ public class ConditionProcessorWrapper implements
 	}
 
 	@Override
-	public IProcessorLogic<ConcreteXMLog> getProcessorLogic() {
+	public IProcessorLogic<ConcreteE4LogsisLog> getProcessorLogic() {
 		return logic;
 	}
 
@@ -36,7 +36,7 @@ public class ConditionProcessorWrapper implements
 	}
 
 	@Override
-	public IProcessorItemWrapper<ConcreteXMLog> getInstance() {
+	public IProcessorItemWrapper<ConcreteE4LogsisLog> getInstance() {
 		return new ConditionProcessorWrapper();
 	}
 
