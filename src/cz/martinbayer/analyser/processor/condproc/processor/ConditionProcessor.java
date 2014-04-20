@@ -5,7 +5,8 @@ import cz.martinbayer.analyser.procedures.exception.ProcedureException;
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
 import cz.martinbayer.analyser.processors.types.ConditionalProcessor;
 
-public class ConditionProcessor extends ConditionalProcessor<ConcreteE4LogsisLog> {
+public class ConditionProcessor extends
+		ConditionalProcessor<ConcreteE4LogsisLog> {
 
 	/**
 	 * 
