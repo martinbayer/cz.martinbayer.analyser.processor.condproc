@@ -62,7 +62,7 @@ public class CondProcEditSupport extends EditingSupport {
 	protected void setValue(Object element, Object value) {
 		if (element instanceof ConditionDescriptor) {
 			((ConditionDescriptor) element)
-					.setSelectedProcedure((IProcedure) value);
+					.setSelectedProcedure(((IProcedure) value).getNewInstance());
 		}
 	}
 

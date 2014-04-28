@@ -1,5 +1,7 @@
 package cz.martinbayer.analyser.processor.condproc.processor;
 
+import java.util.List;
+
 import cz.martinbayer.analyser.impl.ConcreteE4LogsisLog;
 import cz.martinbayer.analyser.procedures.exception.ProcedureException;
 import cz.martinbayer.analyser.procedures.model.ConditionDescriptor;
@@ -20,8 +22,9 @@ public class ConditionProcessor extends
 
 	@Override
 	protected void process() {
-		for (ConditionDescriptor<ConcreteE4LogsisLog> desc : this.model
-				.getRunnableCondDesciptors()) {
+		List<ConditionDescriptor<ConcreteE4LogsisLog>> descs = this.model
+				.getRunnableCondDesciptors();
+		for (ConditionDescriptor<ConcreteE4LogsisLog> desc : descs) {
 			try {
 				desc.getSelectedProcedure().setData(logData);
 				desc.getSelectedProcedure().runProcedure();
@@ -44,5 +47,4 @@ public class ConditionProcessor extends
 	public void init() {
 		// nothing is needed to be initialized
 	}
-
 }
